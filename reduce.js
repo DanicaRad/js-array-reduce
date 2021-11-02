@@ -24,18 +24,29 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 
+// function vowelCount(str) {
+//     const vowels = 'aeiou';
+//     return str.split('').reduce((accum, next) => {
+//         let lowerCased = next.toLowerCase();
+//         if(vowels.indexOf(lowerCased) !== -1) {
+//             if(accum[lowerCased]) {
+//                 accum[lowerCased]++;
+//             }
+//             else {
+//                 accum[lowerCased] = 1;
+//             }
+//         }
+//         return accum;
+//     }, {})
+// }
+
 function vowelCount(str) {
     const vowels = 'aeiou';
     return str.split('').reduce((accum, next) => {
         let lowerCased = next.toLowerCase();
-        if(vowels.indexOf(lowerCased) !== -1) {
-            if(accum[lowerCased]) {
-                accum[lowerCased]++;
-            }
-            else {
-                accum[lowerCased] = 1;
-            }
-        }
+        vowels.indexOf(lowerCased) === -1 ?  null : 
+            accum[lowerCased] ? accum[lowerCased]++ : accum[lowerCased] = 1
+
         return accum;
     }, {})
 }
